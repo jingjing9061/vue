@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-if -show for</title>
+	<script src="./vue.js"></script>
+</head>
+
+<body>
+	
+  <div id="root">
+  	<div v-show="show">hello world</div>
+  	<button @click="clickhander">toggle</button>
+  	<ul>
+  	   <!-- key提升渲染性能  要求每一项内容都不同-->
+  		<li v-for="(item,index) in list" :key="index">{{item}}</li>
+  	</ul>
+
+  </div>
+
+  <script>
+	  new Vue({
+	  	el: "#root",
+	     data: {
+	     	show: true,
+	     	list: [1,2,2,3]
+	     },
+	     methods: {
+	     	clickhander: function() {
+	     		this.show = !this.show;
+	     	}
+	     }
+	  })
+  </script>
+
+</body>
+</html>
